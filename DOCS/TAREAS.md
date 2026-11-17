@@ -7,4 +7,4 @@
 - [x] Tarea 5: Tests unitarios para el Service simulando el Reloj.
 - [x] Tarea 6: Creación de endpoints (`EquipoController`) y validación de entrada.
 - [x] Tarea 7: Setup del frontend y dashboard principal (listado de equipos).
-- [ ] Tarea 8: Formulario de registro de equipos y mantenimientos en frontend.
+- [x] Tarea 8: Formulario de registro de equipos y mantenimientos en frontend.
