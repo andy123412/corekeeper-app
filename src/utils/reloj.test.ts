@@ -3,7 +3,7 @@ import { Reloj } from './reloj';
 
 describe('Utilidad Reloj', () => {
   beforeEach(() => {
-    Reloj.resetear(); // Limpia cualquier hora inventada antes de cada test
+    Reloj.resetear();
   });
 
   it('debe devolver la fecha real si no se fijó ninguna', () => {
