@@ -10,6 +10,9 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
+// Le decimos al servidor que la carpeta "public" es nuestra página web
+app.use(express.static('public'));
+
 app.get('/api/health', (req, res) => {
   res.json({ estado: 'Servidor CoreKeeper Operativo' });
 });

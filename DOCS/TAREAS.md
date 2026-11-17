@@ -6,5 +6,5 @@
 - [x] Tarea 4: Implementación de `EquipoService` con las reglas de negocio (RN-01, RN-02, RN-03).
 - [x] Tarea 5: Tests unitarios para el Service simulando el Reloj.
 - [x] Tarea 6: Creación de endpoints (`EquipoController`) y validación de entrada.
-- [ ] Tarea 7: Setup del frontend y dashboard principal (listado de equipos).
+- [x] Tarea 7: Setup del frontend y dashboard principal (listado de equipos).
 - [ ] Tarea 8: Formulario de registro de equipos y mantenimientos en frontend.
