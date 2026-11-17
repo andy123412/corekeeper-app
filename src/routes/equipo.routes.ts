@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { EquipoRepository } from '../repositories/equipo.repository';
 import { Reloj } from '../utils/reloj';
+import { EquipoService } from '../services/equipo.service';
 
 export const equipoRouter = Router();
 
@@ -8,7 +9,7 @@ export const equipoRouter = Router();
 equipoRouter.post('/', async (req, res) => {
   try {
     const { nombre, tipo, estado } = req.body;
-    const ahora = Reloj.ahora(); // Usamos nuestra utilidad para fijar la hora
+    const ahora = Reloj.ahora(); 
 
     const nuevoEquipo = await EquipoRepository.crear({
       nombre,
@@ -31,5 +32,23 @@ equipoRouter.get('/', async (req, res) => {
     res.json(equipos);
   } catch (error) {
     res.status(500).json({ error: 'Error al obtener los equipos' });
+  }
+});
+
+// Ruta para VER qué equipos necesitan mantenimiento urgente
+equipoRouter.get('/alertas/mantenimiento', async (req, res) => {
+  try {
+    const todosLosEquipos = await EquipoRepository.obtenerTodos();
+    
+    const equiposEnPeligro = todosLosEquipos.filter(equipo => 
+      EquipoService.requiereService(equipo)
+    );
+    
+    res.json({
+      total_alertas: equiposEnPeligro.length,
+      equipos: equiposEnPeligro
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Error al calcular alertas' });
   }
 });
